@@ -25,7 +25,6 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      - name: Get Changed Files
       - uses: lots0logs/gh-action-get-changed-files@2.1.4
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
