@@ -1,1 +1,7 @@
 secopnd one 
+def please(one):
+  return "please"
+ 
+ 
+ 
+ 
