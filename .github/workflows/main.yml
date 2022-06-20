@@ -27,7 +27,7 @@ jobs:
 
       - uses: lots0logs/gh-action-get-changed-files@2.1.4
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Test Coverage Comparison of Added & Modified Files
         uses: AveryCameronUofR/test-coverage-check-gh-action@1.1.1
