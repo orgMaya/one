@@ -25,9 +25,21 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      - uses: lots0logs/gh-action-get-changed-files@2.1.4
+#       - uses: lots0logs/gh-action-get-changed-files@2.1.4
+#         with:
+#           token: ${{ secrets.GITHUB_TOKEN }}
+
+#       - name: Test Coverage Comparison of Added & Modified Files
+#         uses: AveryCameronUofR/test-coverage-check-gh-action@1.1.1
+        
+      - name: Changed Files
+        uses: lots0logs/gh-action-get-changed-files@2.1.4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Test Coverage Comparison of Added & Modified Files
-        uses: AveryCameronUofR/test-coverage-check-gh-action@1.1.1
+      - name: Check test coverage
+        uses: AveryCameronUofR/test-coverage-check-gh-action@1.0.10
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.base_ref }}
+          minNewCoverage: 0.8 (Optional, 0.8 default)
+          maxCoverageChange: 0.1 (Optional, 0.1 default)
